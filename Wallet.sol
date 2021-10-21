@@ -38,6 +38,7 @@ contract Wallet {
 
     function sendAllBalanceAndDestroy(address dest, uint128 value, bool bounce) public checkOwnerAndAccept{
         // This function will send all balance value and then destroy account
+        // contract's status will be "Not initialized"
         dest.transfer(value, bounce, SEND_ALL_AND_DESTROY);
     }
 }
