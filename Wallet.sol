@@ -25,4 +25,19 @@ contract Wallet {
         tvm.accept();
         _;
     }
+
+    function sendWithoutMyCommission(address dest, uint128 value, bool bounce) public checkOwnerAndAccept{
+        // This function will send value without commision at your expense
+        dest.transfer(value, bounce, WITHOUT_COMMISION);
+    }
+
+    function sendWithMyCommission(address dest, uint128 value, bool bounce) public checkOwnerAndAccept{
+        // This function will send value with commision at your expense
+        dest.transfer(value, bounce, WITH_COMMISION);
+    }
+
+    function sendAllBalanceAndDestroy(address dest, uint128 value, bool bounce) public checkOwnerAndAccept{
+        // This function will send all balance value and then destroy account
+        dest.transfer(value, bounce, SEND_ALL_AND_DESTROY);
+    }
 }
