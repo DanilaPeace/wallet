@@ -7,7 +7,7 @@ contract Wallet {
       100 - message sender is not a wallet owner.
       101 - invalid transfer value.
     */
-
+    
     uint16 constant WITHOUT_COMMISION = 0;
     uint16 constant WITH_COMMISION = 1;
     uint16 constant SEND_ALL_AND_DESTROY = 160;
